@@ -21,6 +21,8 @@ from openpyxl import *
 # from PlatformFiles.CANOE_Interface import CANoe
 #    can_message
 import time
+from Tix import COLUMN
+from _sqlite3 import Row
 
  
 
@@ -118,6 +120,25 @@ def TEST_ExS1_3(testcase):
     time.sleep(.1)
     print can_instance.GetSignalValue(2, 'RFHUB_A1' ,'IgnPos')
     
+    FILE_PATH = 'C:\Users\uidh3600\Desktop\GATEWAYS_MYJT20.xlsx'
+
+    SHEET = 'CAN to CAN'
+
+    workbook = load_workbook(FILE_PATH, read_only=True)
+
+    sheet = workbook[SHEET]
+    
+    
+
+    #for row in sheet.iter_rows():
+        #print(row[3].value)
+ 
+    for num in range(3,0,173):
+        b = sheet.cell(row = num, column = 4).value
+        print(b)
+        
+        
+        
     can_instance.Stop()
     
     
