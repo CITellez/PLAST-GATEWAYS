@@ -122,23 +122,18 @@ def TEST_ExS1_3(testcase):
     
     FILE_PATH = 'C:\Users\uidh3600\Desktop\GATEWAYS_MYJT20.xlsx'
 
-    SHEET = 'CAN to CAN'
+    SHEET = 'CAN to LIN1'
 
     workbook = load_workbook(FILE_PATH, read_only=True)
 
     sheet = workbook[SHEET]
     
-    
-
-    #for row in sheet.iter_rows():
-        #print(row[3].value)
- 
-    for num in range(3,0,173):
-        b = sheet.cell(row = num, column = 4).value
+    for num in range(3,176):
+        message_sender = sheet.cell(row = num, column = 4).value
+        message_reciver = sheet.cell(row = num, column = 4).value
+        
         print(b)
-        
-        
-        
+               
     can_instance.Stop()
     
     
