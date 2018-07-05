@@ -109,17 +109,6 @@ def TEST_ExS1_3(testcase):
     except:
         print("La simulacion ya esta corriendo")   
     
-    
-    print can_instance.SignalFullName(2,'PTS_CHIME_STAT','PTS_CHIME_REP_RATE')
-    time.sleep(.1)
-    can_instance.SetSignalValue(2,'PTS_CHIME_STAT','PTS_CHIME_REP_RATE',10)
-    time.sleep(.5)
-    can_instance.SetSignalValue(2,'PTS_CHIME_STAT','PTS_CHIME_REP_RATE',10)
-    time.sleep(.5)
-    can_instance.SetSignalValue(2,'PTS_CHIME_STAT','PTS_CHIME_REP_RATE',10)
-    time.sleep(.5)
-    can_instance.SetSignalValue(2,'PTS_CHIME_STAT','PTS_CHIME_REP_RATE',10)
-    time.sleep(.5)
 #     can_instance.SetSignalValue(2,'ESP_A4', 'VehAccel_Y', 200)
     print("El automovil ha sido encendido")
     
@@ -137,8 +126,19 @@ def TEST_ExS1_3(testcase):
     sheet = workbook[SHEET]
     
     #for num in range(3,176):
-    message_sender  = sheet.cell(row = 5, column = 4).value
-    signal_sender = sheet.cell(row = 5, column = 5).value
+    message_sender  = sheet.cell(row = 126, column = 4).value
+    signal_sender = sheet.cell(row = 126, column = 5).value
+    
+    print can_instance.SignalFullName(2,message_sender,signal_sender)
+    time.sleep(.1)
+    can_instance.SetSignalValue(2,message_sender,signal_sender,9)
+    time.sleep(.5)
+    can_instance.SetSignalValue(2,message_sender,signal_sender,9)
+    time.sleep(.5)
+    can_instance.SetSignalValue(2,message_sender,signal_sender,9)
+    time.sleep(.5)
+    can_instance.SetSignalValue(2,message_sender,signal_sender,9)
+    time.sleep(.5)
     
     print(message_sender) 
     print(signal_sender) 
