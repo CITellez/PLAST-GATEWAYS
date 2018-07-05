@@ -97,6 +97,8 @@ def TEST_ExS1_3(testcase):
     testcase.description = \
     """ 
     This case will be used to create the first test case made by me 
+    
+    mucho ojo el can que esta funcionando es el can C
     """
     can_instance = CANoe()
     
@@ -112,29 +114,35 @@ def TEST_ExS1_3(testcase):
     
     
     print can_instance.SignalFullName(2,'RFHUB_A1','IgnPos')
-    can_instance.SetSignalValue(2, 'RFHUB_A1', 'IgnPos', 4)
+    time.sleep(.1)
+    can_instance.SetSignalValue(2, 'RFHUB_A1', 'IgnPos',4)
+    time.sleep(.1)
+#     can_instance.SetSignalValue(2,'ESP_A4', 'VehAccel_Y', 200)
     print("El automovil ha sido encendido")
     
     """To read something we need a certain time between write and read
        ////////////////////////////////////////////////////////////////"""    
     time.sleep(.1)
-    print can_instance.GetSignalValue(2, 'RFHUB_A1' ,'IgnPos')
+    print can_instance.GetSignalValue(1, 'CBC_CFG1' ,'RKE_ONE_PRESS_ENBL')
     
     FILE_PATH = 'C:\Users\uidh3600\Desktop\GATEWAYS_MYJT20.xlsx'
 
-    SHEET = 'CAN to LIN1'
+    SHEET = 'CAN to CAN'
 
     workbook = load_workbook(FILE_PATH, read_only=True)
 
     sheet = workbook[SHEET]
     
-    for num in range(3,176):
-        message_sender = sheet.cell(row = num, column = 4).value
-        message_reciver = sheet.cell(row = num, column = 4).value
-        
-        print(b)
+    #for num in range(3,176):
+    message_sender  = sheet.cell(row = 5, column = 4).value
+    signal_sender = sheet.cell(row = 5, column = 5).value
+    
+    print(message_sender) 
+    print(signal_sender) 
+    
+   
                
-    can_instance.Stop()
+    #can_instance.Stop()
     
     
     
