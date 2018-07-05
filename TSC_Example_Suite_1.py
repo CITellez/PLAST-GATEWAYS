@@ -108,15 +108,18 @@ def TEST_ExS1_3(testcase):
         can_instance.Start()
     except:
         print("La simulacion ya esta corriendo")   
-             
-    print("Las bases de datos que actualmente se estan usando son:")
-    can_instance.Databases()
     
     
-    print can_instance.SignalFullName(2,'RFHUB_A1','IgnPos')
+    print can_instance.SignalFullName(2,'PTS_CHIME_STAT','PTS_CHIME_REP_RATE')
     time.sleep(.1)
-    can_instance.SetSignalValue(2, 'RFHUB_A1', 'IgnPos',4)
-    time.sleep(.1)
+    can_instance.SetSignalValue(2,'PTS_CHIME_STAT','PTS_CHIME_REP_RATE',10)
+    time.sleep(.5)
+    can_instance.SetSignalValue(2,'PTS_CHIME_STAT','PTS_CHIME_REP_RATE',10)
+    time.sleep(.5)
+    can_instance.SetSignalValue(2,'PTS_CHIME_STAT','PTS_CHIME_REP_RATE',10)
+    time.sleep(.5)
+    can_instance.SetSignalValue(2,'PTS_CHIME_STAT','PTS_CHIME_REP_RATE',10)
+    time.sleep(.5)
 #     can_instance.SetSignalValue(2,'ESP_A4', 'VehAccel_Y', 200)
     print("El automovil ha sido encendido")
     
